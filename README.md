@@ -99,3 +99,27 @@ there — only where the Ministry value was missing, never overwriting it.
 
 - https://www.tourism.gov.mv/statistics/publications
 - https://statisticsmaldives.gov.mv/yearbook/
+
+## Supplementary data
+
+`supplementary_data/` — additional series collected while surveying data sources
+for the thesis. Not merged into `tourism.json`; kept as raw pulls.
+
+- **`weather/`** — daily (`male_daily_2009_2026.json`) and monthly-aggregated
+  (`male_monthly_2009_2026.json`) weather for Male/Hulhule, 2009–2026, from the
+  [Open-Meteo archive API](https://open-meteo.com/) (free, no key). Fetched by
+  `fetch_weather.py`.
+- **`mma/`** — series pulled from the Maldives Monetary Authority's
+  [statistics database API](https://database.mma.gov.mv/api/docs) via
+  `fetch_mma_series.py` (requires an `MMA_API_TOKEN` env var, not included):
+  - `flight_movements.json` — monthly arrival flights at Velana (total/scheduled/
+    general), 2012–2026.
+  - `bed_capacity_occupancy.json` — bed capacity/occupancy split by facility type
+    (guesthouse/hotel/resort/safari vessel), monthly.
+  - `exchange_rates.json` — MVR vs. 21 currencies, mostly 2012–2026.
+  - `cpi_prices.json` — total CPI and restaurants/accommodation CPI, monthly.
+  - `tourism_gdp.json` — monthly tourism GVA and total GDP, 2014–2026.
+  - `travel_receipts.json` — annual travel receipts/payments (balance of
+    payments), 2011–2026.
+  - `manifest.json` — id/name/frequency/unit/point-count/date-range for every
+    series above.
